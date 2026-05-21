@@ -1,0 +1,92 @@
+.edit-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.edit-modal-content {
+  background: white;
+  border-radius: 12px;
+  width: 500px;
+  max-width: 95%;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.edit-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  border-bottom: 1px solid #dbdbdb;
+  height: 48px;
+}
+
+.edit-modal-header h2 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  color: #262626;
+}
+
+/* Кнопка Done */
+.done-btn {
+  color: #0095f6;
+  background: none;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.done-btn:disabled {
+  opacity: 0.3;
+}
+
+/* Кнопка Крестик */
+.edit-modal-close-btn {
+  background: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px; /* Увеличил размер для удобства */
+  color: #262626;
+  transition: opacity 0.2s;
+}
+
+.edit-modal-close-btn:hover {
+  opacity: 0.7;
+}
+
+/* Тело модалки и текст */
+.edit-modal-body {
+  padding: 16px;
+}
+
+.edit-modal-body textarea {
+  width: 100%;
+  height: 150px;
+  border: none;
+  resize: none;
+  outline: none;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #262626;
+  
+  /* ПРЕДОТВРАЩАЕМ ВЫЛЕЗАНИЕ ТЕКСТА */
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: pre-wrap;
+}

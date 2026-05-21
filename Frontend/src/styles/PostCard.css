@@ -1,0 +1,229 @@
+:root {
+  --font-family: "Roboto", sans-serif;
+  --second-family: "STIX Two Math", sans-serif;
+}
+
+.post-card {
+  background: #fff;
+  width: 404px; 
+  margin: 0 auto 24px auto; 
+  border-bottom: 1px solid #efefef;
+  padding-bottom: 12px;
+  box-sizing: border-box; /* Защита от вылетов при паддингах */
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.post-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar-ring {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  padding: 2px;
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.post-avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+}
+
+.post-user-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.post-username {
+  font-weight: 600;
+  cursor: pointer;
+  color: #262626;
+}
+
+.post-dot {
+  color: #8e8e8e;
+  font-size: 10px;
+}
+
+.post-time {
+  color: #8e8e8e;
+  font-weight: 400;
+}
+
+.post-follow-btn {
+  background: none;
+  border: none;
+  color: #0095f6;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  font-size: 13px;
+  text-transform: lowercase;
+}
+
+.post-follow-btn.following {
+  color: #262626;
+}
+
+.post-header-options {
+  display: none !important;
+}
+
+.post-image-container {
+  width: 100%;
+  height: 506px; /* Твоя любимая десктопная высота */
+  background-color: #fafafa;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid #dbdbdb;
+}
+
+.post-main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
+
+.post-footer {
+  padding-top: 10px;
+  font-family: var(--font-family);
+  color: #262626;
+}
+
+.post-actions {
+  display: flex;
+  margin-bottom: 6px;
+}
+
+.left-actions {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  align-items: center;
+}
+
+.action-btn {
+  cursor: pointer;
+  display: flex;
+  font-size: 24px;
+}
+
+.post-likes-count {
+  font-weight: 600;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.post-description {
+  font-size: 13px;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.caption-text {
+  font-weight: 400;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.more-btn {
+  color: #8e8e8e;
+  cursor: pointer;
+  margin-left: 4px;
+}
+
+.view-comments-link {
+  color: #8e8e8e;
+  font-size: 13px;
+  cursor: pointer;
+  margin: 4px 0;
+  font-weight: 400;
+}
+
+.latest-comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mini-comment {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.comment-text {
+  font-weight: 400;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.bold-username {
+  font-weight: 600;
+  margin-right: 4px;
+  cursor: pointer;
+}
+/* ==========================================================================
+   ИСПРАВЛЕНИЯ ДЛЯ ВСЕХ ЭКРАНОВ ОТ 767px И НИЖЕ
+   ========================================================================== */
+@media (max-width: 767px) {
+  
+  /* 1. Убираем пустоту под картинкой */
+  .post-image-container {
+    height: auto !important; 
+    border: none;   
+ }
+
+  .post-main-image {
+    object-fit: cover;           /* Картинка аккуратно заполняет адаптивный контейнер */
+  }
+
+  /* 2. Делаем отступы, чтобы лайки, текст и комменты не липли к краям экрана */
+  .post-header,
+  .post-footer {
+    padding-left: 12px !important;  /* Создаем безопасную зону слева */
+    padding-right: 12px !important; /* Создаем безопасную зону справа */
+    box-sizing: border-box;
+  }
+}
+/* ==========================================================================
+   ТОЧЕЧНЫЕ ИСПРАВЛЕНИЯ ДЛЯ ЭКРАНОВ МЕНЕЕ 480px (Планшеты/Телефоны)
+   ========================================================================== */
+@media (max-width: 480px) {
+  /* 1. Добавляем внутренние отступы для текста, чтобы он не лип к экрану */
+  .post-header,
+  .post-footer {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  /* 2. Уничтожаем пустое место под картинкой */
+  .post-image-container {
+    height: auto !important; /* Отменяем жесткие 506px */
+    border: none;
+  }
+
+  .post-main-image {
+    object-fit: cover;
+  }
+}

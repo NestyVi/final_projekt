@@ -1,0 +1,235 @@
+/* ==========================================================================
+   БАЗОВЫЕ СТИЛИ (ДЕСКТОП - ОТ 1264px)
+   ========================================================================== */
+.explore-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #fff;
+}
+
+.explore-main-content {
+  flex: 1;
+}
+
+/* Контейнер с точными отступами из Figma */
+.explore-container {
+  padding: 89px 113px 89px 123px;
+  width: min-content; 
+  margin: 0; 
+}
+
+/* Сетка фотографий с фиксированным размером колонок */
+.explore-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 317px);
+  grid-auto-rows: 317px; 
+  gap: 4px; 
+  grid-auto-flow: dense;
+}
+
+/* Индивидуальный блок поста */
+.explore-item {
+  position: relative;
+  cursor: pointer;
+  width: 317px;
+  height: 317px;
+  overflow: hidden;
+  background-color: #fafafa; /* Легкий фон на время загрузки */
+}
+
+/* Высокие вертикальные блоки (317 x 636) */
+.explore-item.tall {
+  grid-row: span 2;
+  width: 317px;
+  height: 638px; /* 317 + 317 + 4px gap = 638px */
+}
+
+/* Картинка */
+.explore-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Оверлей (Hover) */
+.explore-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 5;
+}
+
+.explore-item:hover .explore-overlay {
+  opacity: 1;
+}
+
+/* Иконки статистики */
+.overlay-stats-wrapper {
+  display: flex;
+  gap: 30px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.overlay-stat {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.heart-icon.active {
+  color: #ff3040;
+}
+
+
+/* ==========================================================================
+   МЕДИА-ЗАПРОСЫ (ИСПРАВЛЕННЫЙ АДАПТИВ И ЦЕНТРИРОВАНИЕ)
+   ========================================================================== */
+
+/* 💻 Средние мониторы и ноутбуки (до 1263px) */
+/* ==========================================================================
+   МЕДИА-ЗАПРОСЫ (ИСПРАВЛЕННЫЙ АДАПТИВ И СКРЫТИЕ ФУТЕРА)
+   ========================================================================== */
+
+/* 💻 Средние мониторы и ноутбуки (до 1263px) */
+@media (max-width: 1263px) {
+  .explore-container {
+    padding: 40px 24px;
+    width: 100% !important;
+    max-width: 935px; 
+    margin: 0 auto !important; 
+    box-sizing: border-box;
+  }
+
+  .explore-grid {
+    grid-template-columns: repeat(3, 1fr) !important; 
+    grid-auto-rows: auto !important; 
+    gap: 4px;
+    width: 100%;
+  }
+
+  .explore-item {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1 !important; 
+  }
+
+  .explore-item img {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .explore-item.tall {
+    height: auto !important;
+    aspect-ratio: 1 / 2.015 !important; 
+  }
+}
+
+/* 📐 Вертикальные планшеты (до 912px) — ТУТ НАЧИНАЕМ ПРЯТАТЬ */
+@media (max-width: 912px) {
+  :global(main), main { 
+    margin-left: 0 !important; 
+  }
+
+  /* На планшетах полностью скрываем футер */
+  .explore-page-wrapper footer, 
+  .explore-page-wrapper .footer {
+    display: none !important;
+  }
+
+  .explore-container {
+    padding: 30px 15px;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    box-sizing: border-box;
+  }
+
+  .explore-grid {
+    grid-template-columns: 1fr !important; 
+    grid-auto-rows: auto !important;
+    max-width: 550px; 
+    margin: 0 auto !important; 
+    gap: 20px !important;                             
+  }
+
+  .explore-item {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1 !important; 
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;                    
+  }
+
+  .explore-item img {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .explore-item.tall {
+    grid-row: auto !important;            
+    height: auto !important;
+    aspect-ratio: 1 / 1 !important;        
+  }
+}
+
+/* 📱 Смартфоны (до 767px) */
+@media (max-width: 767px) {
+  :global(main), main { 
+    margin-left: 0 !important; 
+  }
+
+  /* На телефонах футер тоже гарантированно скрыт */
+  .explore-page-wrapper footer, 
+  .explore-page-wrapper .footer {
+    display: none !important;
+  }
+
+  .explore-container {
+    padding: 0 0 60px 0 !important; /* Нижний паддинг оставляем под мобильное меню, если оно есть */
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow-x: hidden; 
+  }
+
+  .explore-grid {
+    grid-template-columns: 1fr !important; 
+    max-width: 100% !important; 
+    gap: 6px !important; 
+    margin: 0 !important;
+  }
+
+  .explore-item {
+    width: 100% !important;
+    border-left: none !important; 
+    border-right: none !important; 
+    border-radius: 0 !important; 
+    aspect-ratio: 1 / 1 !important;
+  }
+
+  .explore-item img {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .explore-item.tall {
+    grid-row: auto !important;
+    aspect-ratio: 1 / 1 !important;
+  }
+
+  .explore-overlay {
+    display: none !important; 
+  }
+}

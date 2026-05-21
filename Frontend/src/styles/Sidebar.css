@@ -1,0 +1,277 @@
+/* ==========================================================================
+   БАЗОВЫЕ СТИЛИ (ДЕСКТОП - ОТ 1264px)
+   ========================================================================== */
+.sidebar {
+  width: 245px;
+  height: 100vh;
+  border-right: 1px solid #dbdbdb;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 12px 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: #fff;
+  z-index: 1001;
+  transition: all 0.3s ease;
+}
+
+.sidebar-logo {
+  padding: 25px 12px 35px;
+  min-height: 92px;
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  width: 103px;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-grow: 1;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  text-decoration: none;
+  color: #000;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.nav-item:hover {
+  background-color: #f2f2f2;
+}
+
+.nav-text {
+  font-size: 16px;
+}
+
+.nav-item.active {
+  font-weight: 700;
+}
+
+/* ИЗМЕНЕНИЕ: Контейнер для микро-авы / кружка с буквой */
+.profile-icon-container {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 16px; /* Сохраняем отступ десктопного меню */
+  flex-shrink: 0;
+}
+
+/* Картинка внутри круга */
+.profile-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Буква внутри круга */
+.profile-icon-initial {
+  font-size: 11px;
+  font-weight: 700;
+  color: #262626;
+  text-transform: uppercase;
+  user-select: none;
+  line-height: 1;
+}
+
+.panel-overlay {
+  position: fixed;
+  top: 0;
+  left: 0; 
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.panel-overlay.visible {
+  visibility: visible;
+  opacity: 1;
+  left: 622px; 
+  border-bottom-left-radius: 16px;
+}
+
+.nav-icon-wrapper {
+  font-size: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 16px;
+  position: relative;
+  overflow: visible !important;
+}
+
+.badge-dot {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 10px; 
+  height: 10px;
+  background-color: #ff3b30;
+  border-radius: 50%;
+  border: 2px solid white;
+  display: block !important;
+  z-index: 999;
+}
+
+.badge-count {
+  position: absolute;
+  top: -5px;
+  right: -8px;
+  background-color: #ff3b30;
+  color: white;
+  font-size: 10px;
+  padding: 2px 5px;
+  border-radius: 10px;
+  min-width: 15px;
+  text-align: center;
+  z-index: 999;
+}
+
+/* ==========================================================================
+   МЕДИА-ЗАПРОСЫ (АДАПТИВ)
+   ========================================================================== */
+
+/* 💻 Средние экраны и планшеты (до 1263px) */
+@media (max-width: 1263px) {
+  .profile-icon-container {
+    margin-right: 0 !important; /* Убираем отступ на планшетах/мобилках */
+  }
+    .sidebar {
+        width: 72px;
+        padding: 8px 0 20px;
+        align-items: center;
+    }
+
+    .sidebar-logo {
+        justify-content: center;
+        padding: 25px 0 35px;
+    }
+    .logo-img {
+        display: none;
+    }
+
+    .nav-text {
+        display: none;
+    }
+
+    .nav-item {
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        padding: 0;
+        margin: 0 auto;
+    }
+
+    /* ИЗМЕНЕНИЕ: Убираем правый отступ у контейнера на планшетном меню */
+    .nav-icon-wrapper {
+        margin-right: 0;
+    }
+
+    .panel-overlay.visible {
+        left: 72px;
+    }
+
+    .profile-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sidebar-avatar-initial-box {
+  width: 100%;
+  height: 100%;
+  background-color: #efefef; /* Фирменный серый фон */
+  color: #262626;            /* Цвет буквы */
+  font-weight: 700;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  text-transform: uppercase;
+  user-select: none;
+  border: 1px solid #dbdbdb;
+  box-sizing: border-box;
+}
+}
+
+/* 📱 Смартфоны (до 767px) */
+@media (max-width: 767px) {
+    .sidebar {
+        width: 100vw;
+        height: 48px;
+        border-right: none;
+        border-top: 1px solid #dbdbdb;
+        top: auto;
+        bottom: 0;
+        flex-direction: row;
+        padding: 0;
+        z-index: 1005;
+    }
+
+    .sidebar-logo {
+        display: none;
+    }
+
+    .sidebar-nav {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        gap: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .nav-item {
+        width: auto;
+        height: 100%;
+        flex: 1;
+        border-radius: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: transparent !important;
+    }
+
+    .logout-item {
+        display: flex !important; 
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        flex: 1;
+    }
+
+    .logout-item .nav-text {
+        display: none !important;
+    }
+
+    /* ИЗМЕНЕНИЕ: Гарантируем отсутствие отступов в мобильном таб-баре */
+    .profile-icon-container {
+        margin-right: 0 !important;
+    }
+
+    .panel-overlay.visible {
+        left: 0;
+        border-radius: 0;
+    }
+}

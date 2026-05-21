@@ -1,0 +1,145 @@
+.edit-profile-wrapper {
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    min-height: 100vh;
+}
+
+.edit-profile-container {
+    width: 100%;
+    max-width: 600px;
+}
+
+.edit-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+/* Карточка смены фото */
+.photo-upload-card {
+    background: #efefef;
+    border-radius: 16px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.photo-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.edit-avatar-preview {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.photo-text-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.username-display {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.bio-subtitle {
+    font-size: 12px;
+    color: #737373;
+}
+
+.new-photo-btn {
+    background-color: #0095f6;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Форма и инпуты */
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.input-group input, 
+.input-group textarea {
+    border: 1px solid #dbdbdb;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 14px;
+    outline: none;
+}
+
+.website-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.link-icon {
+    position: absolute;
+    left: 12px;
+    font-size: 14px;
+}
+
+.website-input-wrapper input {
+    width: 100%;
+    padding-left: 35px;
+}
+
+.textarea-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.textarea-wrapper textarea {
+    height: 100px;
+    resize: none;
+}
+
+.char-count {
+    align-self: flex-end;
+    font-size: 12px;
+    color: #737373;
+    margin-top: 4px;
+}
+
+.final-save-btn {
+    background-color: #0095f6;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.final-save-btn:hover {
+    background-color: #1877f2;
+}

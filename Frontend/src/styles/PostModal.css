@@ -1,0 +1,418 @@
+/* Главный оверлей */
+.post-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Основной контейнер модалки */
+.post-modal-container {
+  display: flex;
+  width: 1000px;
+  height: 722px;
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Левая часть: Изображение */
+.post-modal-image {
+  width: 577px;
+  height: 100%;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.post-modal-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Правая часть: Контент */
+.post-modal-details {
+  width: 423px;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-left: 1px solid #efefef;
+}
+
+/* Хедер модалки */
+.modal-user-header {
+  height: 60px;
+  padding: 0 16px;
+  border-bottom: 1px solid #efefef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.header-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.username-bold {
+  font-weight: 600;
+  font-size: 14px;
+  color: #262626;
+  text-decoration: none;
+}
+
+.separator {
+  margin: 0 4px;
+  font-size: 14px;
+  color: #262626;
+}
+
+.follow-btn-link {
+  background: transparent;
+  border: none;
+  color: #0095f6;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.follow-btn-link:hover {
+  color: #00376b;
+}
+
+/* Кнопка троеточия */
+.options-dot-btn {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  color: #262626;
+}
+
+/* Зона комментариев */
+.modal-comments-area {
+  flex-grow: 1;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.comment-item {
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.comment-main {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.comment-text-block {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.comment-text-block p {
+  color: #262626;
+  margin-left: 15px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: pre-wrap;
+  max-width: 100%;
+}
+
+/* Мелкий текст под комментарием */
+.comment-subtext, 
+.comment-footer-info {
+  font-size: 12px;
+  color: #8e8e8e;
+  margin-top: 8px;
+  margin-left: 13px;
+  display: flex;
+  gap: 30px;
+}
+
+.likes-count-text {
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Кнопка лайка у комментария */
+.comment-like-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px 0 0 10px;
+  display: flex;
+  align-items: center;
+}
+
+/* Класс для анимации или явного окрашивания лайков (на всякий случай) */
+.comment-like-btn.liked {
+  color: #ed4956;
+}
+
+.action-btn.liked {
+  color: #ed4956;
+}
+
+/* Футер модалки */
+.modal-footer {
+  border-top: 1px solid #efefef;
+  background: white;
+}
+
+.footer-top-row {
+  padding: 12px 16px 8px;
+}
+
+.footer-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  padding: 0;
+  cursor: pointer;
+  color: #262626;
+  display: flex;
+  align-items: center;
+}
+
+/* Блок со статистикой */
+.footer-stats-block {
+  padding: 0 16px 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-likes-count {
+  font-weight: 700;
+  font-size: 14px;
+  color: #262626;
+  margin-bottom: 4px;
+}
+
+.footer-date-text {
+  font-size: 10px;
+  color: #8e8e8e;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+}
+
+/* Секция ввода комментария */
+.modal-input-section {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-top: 1px solid #efefef;
+  min-height: 53px;
+  position: relative;
+}
+
+/* Контейнер смайликов */
+.emoji-container {
+  display: flex;
+  align-items: center;
+  margin-right: 12px;
+}
+
+.emoji-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  color: #262626;
+}
+
+.emoji-picker-wrapper {
+  position: absolute;
+  bottom: 60px; /* Чтобы открывалось НАД инпутом */
+  left: 16px;
+  z-index: 1001;
+}
+
+.modal-input-section input {
+  border: none;
+  flex-grow: 1;
+  outline: none;
+  font-size: 14px;
+  color: #262626;
+}
+
+.send-btn {
+  background: none;
+  border: none;
+  color: #0095f6;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+  padding-left: 10px;
+}
+
+.send-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+/* Общие элементы */
+.avatar-small {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.clickable {
+  cursor: pointer;
+  pointer-events: auto; /* Добавь это, если клик не срабатывает */
+  position: relative;   /* Чтобы z-index работал */
+  z-index: 5;          /* Чтобы быть выше других элементов в блоке */
+}
+
+.clickable:hover {
+  opacity: 0.8;
+}
+
+/* Скрываем скролл */
+.modal-comments-area::-webkit-scrollbar {
+  width: 0;
+}
+
+/* Состояние, когда мы уже подписаны */
+.follow-btn-link.is-following {
+  color: #262626; /* Цвет обычного текста */
+  font-weight: 500;
+}
+
+.follow-btn-link.is-following:hover {
+  color: #ed4956; /* Станет красной при наведении, намекая на отписку */
+}
+
+/* ==========================================================================
+   АДАПТИВ ДЛЯ МОДАЛЬНОГО ОКНА ПОСТА
+   ========================================================================== */
+
+/* 💻 Ограничение под небольшие ноутбуки и горизонтальные планшеты (до 1050px) */
+@media (max-width: 1050px) {
+  .post-modal-container {
+    width: 95vw; /* Окно занимает 95% ширины экрана */
+    max-width: 850px;
+    height: 600px; /* Немного опускаем высоту */
+  }
+
+  .post-modal-image {
+    width: 55%; /* Картинка динамически сжимается */
+  }
+
+  .post-modal-details {
+    width: 45%; /* Панель инфо подстраивается под остаток */
+  }
+}
+
+/* 📱 Смартфоны и вертикальные экраны (до 767px — Твой iPhone) */
+@media (max-width: 767px) {
+  .post-modal-overlay {
+    padding: 0; /* Убираем любые внешние отступы */
+  }
+
+  /* Разворачиваем контейнер модалки на весь мобильный экран */
+  .post-modal-container {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: 100vh !important;
+    max-height: 100vh !important;
+    border-radius: 0; /* Убираем скругления углов */
+    flex-direction: column; /* Перестраиваем панели сверху вниз */
+    overflow-y: auto; /* Включаем общий вертикальный скролл */
+  }
+
+  /* 1. Хедер автора делаем первым и закрепляем фиксированную высоту */
+  .modal-user-header {
+    order: 1; 
+    width: 100%;
+    box-sizing: border-box;
+    background: #fff;
+  }
+
+  /* 2. Левая часть (Фото) встает строго под хедером */
+  .post-modal-image {
+    order: 2;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1; /* Делаем фото идеальным квадратом на мобилке */
+    flex-shrink: 0;
+  }
+
+  /* 3. Правая часть (Контент) превращается в продолжение вертикальной ленты */
+  .post-modal-details {
+    order: 3;
+    width: 100% !important;
+    border-left: none; /* Убираем ненужную левую границу десктопа */
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Футер с кнопками лайков и датой поднимаем НАД комментариями, как в приложении */
+  .modal-footer {
+    order: 1; /* Внутри блока details этот блок пойдет первым */
+    border-top: none;
+    border-bottom: 1px solid #efefef;
+  }
+
+  /* Зона комментариев уходит в самый низ под кнопки */
+  .modal-comments-area {
+    order: 2;
+    flex-grow: unset;
+    height: auto;
+    max-height: 300px; /* Ограничиваем зону, чтобы не растягивать страницу бесконечно */
+    overflow-y: auto;
+    border-bottom: 1px solid #efefef;
+    -webkit-overflow-scrolling: touch; /* Плавный скролл на iOS */
+  }
+
+  /* Секция ввода нового комментария в самом низу */
+  .modal-input-section {
+    order: 3;
+    width: 100%;
+    box-sizing: border-box;
+    background: #fff;
+    padding-bottom: env(safe-area-inset-bottom, 12px); /* Защита от домашней полоски на iPhone */
+  }
+
+  /* Небольшие мобильные оптимизации для текста */
+  .comment-text-block p {
+    margin-left: 8px;
+    font-size: 13px;
+  }
+
+  .comment-subtext, 
+  .comment-footer-info {
+    margin-left: 8px;
+    gap: 15px;
+  }
+}

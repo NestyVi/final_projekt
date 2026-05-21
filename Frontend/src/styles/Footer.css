@@ -1,0 +1,98 @@
+.main-footer {
+  width: 100%;
+  background: transparent !important; /* Чтобы не перекрывал фон */
+  position: relative;
+  z-index: 1;
+  /* 224px отступ от левой линии (сайдбара) */
+  padding: 40px 0 52px 224px; 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  /* 40px расстояние между словами */
+  gap: 12px 40px; 
+  justify-content: flex-start;
+}
+
+/* Общие стили для ссылок и кнопок-панелей */
+.footer-links a, 
+.footer-link-btn {
+  color: #737373 !important;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  font-weight: 400; /* Regular */
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.footer-links a:hover, 
+.footer-link-btn:hover {
+  opacity: 0.7; /* Легкое затухание при наведении */
+}
+
+.copyright {
+  color: #737373;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
+  /* 48px отступ от слов до копирайта */
+  margin-top: 48px; 
+  letter-spacing: 0.5px;
+}
+
+/* --- Специфичные настройки для разных страниц --- */
+
+/* 1. СТРАНИЦА HOME (Лента) */
+.home-page .main-footer {
+    padding-left: 0;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 630px; /* Ширина ленты постов */
+}
+.home-page .footer-links {
+    justify-content: center;
+}
+
+/* 2. СТРАНИЦА EXPLORE (Сетка) */
+.explore-page-wrapper .main-footer {
+    padding-left: 0;
+    align-items: center;
+    margin: 50px 159px; /* Отступ сверху от сетки */
+    max-width: 935px; /* Ширина сетки Explore */
+}
+.explore-page-wrapper .footer-links {
+    justify-content: center;
+}
+
+/* 3. СТРАНИЦА PROFILE (Профиль) */
+.profile-page-container .main-footer {
+    padding-left: 0;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 935px; /* Ширина профиля */
+}
+.profile-page-container .footer-links {
+    justify-content: center;
+}
+
+/* Базовый сброс для всех страниц, кроме ленты, если нужно */
+/* Если ты на какой-то новой странице, где нет этих классов, 
+   сработает твой стандартный padding-left: 224px */
+
+/* Адаптивность: если экран узкий, убираем гигантский отступ слева */
+@media (max-width: 1200px) {
+  .main-footer {
+    padding-left: 20px;
+    align-items: center;
+  }
+  .footer-links {
+    justify-content: center;
+    gap: 15px 20px;
+  }
+}

@@ -1,0 +1,227 @@
+/* ==========================================================================
+   БАЗОВЫЕ СТИЛИ (ДЕСКТОП - ОТ 1264px)
+   ========================================================================== */
+.search-drawer, 
+.notifications-drawer {
+  position: fixed;
+  top: 0;
+  left: 245px; /* Идеально стыкуется с широким сайдбаром */
+  width: 397px;
+  height: 100vh;
+  background: #ffffff !important;
+  border-right: 1px solid #dbdbdb;
+  z-index: 1000;
+  
+  transform: translateX(-100%);
+  visibility: hidden;
+  opacity: 0;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s, left 0.3s ease;
+              
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  box-shadow: 10px 0 20px rgba(0, 0, 0, 0.05); 
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.search-drawer.open, 
+.notifications-drawer.open {
+  transform: translateX(0);
+  visibility: visible;
+  opacity: 1;
+}
+
+/* ШАПКА ПОИСКА */
+.drawer-header {
+  padding: 25px 24px 20px;
+}
+
+.drawer-header h2 {
+  font-size: 24px;
+  margin-bottom: 35px;
+  color: #000;
+  font-weight: 700;
+}
+
+/* КОНТЕЙНЕР ИНПУТА */
+.search-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #efefef;
+  border-radius: 8px;
+  padding-right: 16px;
+  height: 40px;
+}
+
+.search-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  outline: none;
+  color: #262626;
+  padding: 16px;
+}
+
+/* КНОПКА СБРОСА (X) */
+.input-clear-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-left: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.input-clear-btn:hover {
+  opacity: 1;
+}
+
+/* СЕКЦИЯ RECENT */
+.recent-section {
+  padding-top: 10px;
+}
+
+.section-subtitle {
+  padding: 0 33px;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 15px 0 20px;
+  color: #000;
+}
+
+/* СПИСОК РЕЗУЛЬТАТОВ */
+.results-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 24px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  text-decoration: none;
+}
+
+.user-item:hover {
+  background-color: #fafafa;
+}
+
+.user-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 12px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-username {
+  font-size: 14px;
+  font-weight: 700;
+  color: #262626;
+  line-height: 1.2;
+}
+
+.user-fullname {
+  font-size: 14px;
+  color: #737373;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+/* СОСТОЯНИЯ ПУСТОТЫ */
+.no-results-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  color: #737373;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  padding: 0 40px;
+}
+
+/* СКРОЛЛ */
+.drawer-content {
+  overflow-y: auto;
+  height: calc(100vh - 160px);
+}
+
+.drawer-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.drawer-content::-webkit-scrollbar-thumb {
+  background-color: #dbdbdb;
+  border-radius: 10px;
+}
+
+/* ==========================================================================
+   МЕДИА-ЗАПРОСЫ (АДАПТИВ)
+   ========================================================================== */
+
+/* 💻 Средние экраны и ноутбуки (до 1263px) */
+@media (max-width: 1263px) {
+  .search-drawer, 
+  .notifications-drawer {
+    left: 72px; /* Прижимаем шторку вплотную к узкому сайдбару (убираем серый зазор) */
+  }
+}
+
+/* 📐 Планшеты (до 1024px) */
+@media (max-width: 1024px) {
+  .search-drawer, 
+  .notifications-drawer {
+    left: 72px;
+    width: 397px; /* Удерживаем стандартный размер шторки */
+  }
+}
+
+/* 📱 Смартфоны и вертикальные планшеты (до 767px — Твой iPhone и др.) */
+@media (max-width: 767px) {
+  .search-drawer, 
+  .notifications-drawer {
+    left: 0 !important; /* Открываем от самого левого края экрана */
+    width: 100vw; /* Растягиваем строго на всю ширину дисплея смартфона */
+    height: calc(100vh - 48px); /* Оставляем снизу место для мобильного таб-бара (48px) */
+    border-right: none;
+    border-radius: 0; /* Убираем скругления углов, на весь экран */
+    z-index: 1010; /* Поднимаем выше контента */
+  }
+
+  /* Небольшая оптимизация отступов в шапке для мобилок */
+  .drawer-header {
+    padding: 20px 16px 12px;
+  }
+
+  .drawer-header h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .section-subtitle {
+    padding: 0 20px;
+    margin: 10px 0 15px;
+  }
+
+  .user-item {
+    padding: 10px 16px; /* Чуть увеличиваем область клика для пальца */
+  }
+  
+  .drawer-content {
+    height: calc(100vh - 140px); /* Корректируем область скролла под мобильный заголовок */
+  }
+}

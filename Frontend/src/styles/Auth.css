@@ -1,0 +1,379 @@
+/* Переменные на основе исследования Figma */
+:root {
+    --primary-blue: #0095F6;
+    --primary-blue-hover: #1877F2;
+    --bg-gray: #FAFAFA;
+    --border-color: #DBDBDB;
+    --text-gray-placeholder: #737373; /* Цвет плейсхолдера и обычного текста */
+    --link-blue: #00376B; /* Тот самый темно-синий для Learn More и ссылок */
+    --font-family: 'Roboto', sans-serif;
+}
+
+/* Главный контейнер */
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--bg-gray);
+    padding: 20px;
+}
+
+/* Обертка */
+.auth-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    max-width: 935px;
+    width: 100%;
+}
+
+.phones-container {
+    display: block;
+}
+
+.phones-image {
+    max-height: 600px;
+}
+
+/* Правая колонка */
+.auth-right-side {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    flex-shrink: 0;
+    transform: translateY(-12px); /* Приподнимаем как в оригинале */
+}
+
+/* Базовый белый блок */
+.auth-box {
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 1px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+
+/* СПЕЦИФИКАЦИЯ ДЛЯ REGISTER (350x554) */
+.register-main-box {
+    min-height: 554px; /* Используем min-height, чтобы контент не обрезался */
+    padding: 20px 40px !important;
+}
+
+/* Логотип */
+.auth-logo {
+    margin: 22px 0 12px;
+    width: 175px;
+}
+
+/* Подзаголовок регистрации */
+.register-subtitle {
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 20px;
+    text-align: center;
+    color: var(--text-gray-placeholder);
+    margin-bottom: 20px;
+    width: 268px;
+}
+
+/* Форма */
+.auth-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ИНПУТЫ И КНОПКА (258x36 по Figma) */
+.auth-input, .auth-button {
+    width: 258px !important;
+    height: 36px !important;
+    margin-bottom: 6px;
+    font-family: var(--font-family);
+}
+
+.auth-input {
+    background-color: var(--bg-gray);
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    padding: 0 8px;
+    font-size: 12px;
+    color: #262626;
+}
+
+.auth-input::placeholder {
+    color: var(--text-gray-placeholder);
+}
+
+.auth-button {
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background-color 0.1s ease;
+}
+
+.auth-button:disabled {
+    opacity: 0.7;
+    cursor: default;
+}
+
+/* Тексты под кнопкой регистрации */
+.info-text, .terms-text {
+    width: 258px;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 133%; /* 1.33 по Figma */
+    text-align: center;
+    color: #737373; /* Основной серый цвет текста */
+    margin-top: 15px;
+}
+
+.info-text {
+    margin-top: 20px;
+}
+
+/* Синие ссылки (Learn More, Terms и т.д.) */
+.policy-link, .learn-more-link {
+    color: var(--link-blue); /* #00376B */
+    text-decoration: none;
+    font-weight: 400;
+}
+
+.policy-link {
+    font-weight: 600; /* Terms и Policy чуть жирнее в оригинале */
+}
+
+.policy-link:hover, .learn-more-link:hover {
+    text-decoration: underline;
+}
+
+/* Блок "Have an account?" */
+.signup-prompt-box {
+    padding: 20px 0;
+    justify-content: center;
+}
+
+.signup-text {
+    font-size: 14px;
+    color: #000;
+}
+
+.signup-link {
+    color: var(--primary-blue);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* Текст ошибки */
+.error-text {
+    color: #ed4956;
+    font-size: 12px;
+    text-align: center;
+    width: 258px;
+    margin: 5px 0;
+}
+
+/* Разделитель OR */
+.divider-container {
+    display: flex;
+    align-items: center;
+    width: 258px;
+    margin: 15px 0;
+}
+
+.divider-line {
+    flex: 1;
+    height: 1px;
+    background-color: var(--border-color);
+}
+
+.divider-text {
+    margin: 0 15px;
+    color: #8e8e8e;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.forgot-password-link {
+    font-size: 12px;
+    color: var(--link-blue);
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+.reset-box {
+    padding: 20px 40px !important;
+}
+
+.lock-circle {
+    width: 96px;
+    height: 96px;
+    border: 2px solid #262626;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.lock-img {
+    width: 50px;
+}
+
+.reset-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #262626;
+}
+
+.reset-description {
+    font-size: 14px;
+    line-height: 18px;
+    color: #737373;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.create-account-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: #262626;
+    text-decoration: none;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.back-to-login-box {
+    background-color: #FAFAFA !important;
+    height: 44px;
+    justify-content: center;
+}
+
+.back-to-login-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: #262626;
+    text-decoration: none;
+}
+
+/* --- СТИЛИ ТОЛЬКО ДЛЯ СТРАНИЦЫ RESET PASSWORD --- */
+
+/* Ширина всей колонки для этой страницы */
+.reset-page .auth-right-side {
+    width: 390px !important;
+}
+
+/* Новый контейнер 390x537 */
+.reset-page .reset-container {
+    background-color: white;
+    border: 1px solid var(--border-color);
+    width: 390px !important;
+    height: 537px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 !important; /* Убираем паддинги, чтобы футер прилип к краям */
+    overflow: hidden;
+}
+
+/* Замок: один круг с тонкой линией */
+.reset-page .lock-circle {
+    width: 96px;
+    height: 96px;
+    border: none !important;        /* Убираем ЛЮБЫЕ рамки */
+    outline: none !important;       /* Убираем обводку */
+    background: none !important;    /* Убираем фон */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 44px;
+    margin-bottom: 12px;
+}
+
+.reset-page .lock-img {
+    width: 96px;  /* Ширина должна совпадать с размером SVG */
+    height: 96px;
+}
+
+.reset-page .reset-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.reset-page .reset-description {
+    font-size: 14px;
+    line-height: 18px;
+    color: #737373;
+    text-align: center;
+    width: 300px; /* Чтобы текст ложился ровно в 2-3 строки */
+    margin-bottom: 16px;
+}
+
+/* Кнопка и инпут чуть шире в этом контейнере */
+.reset-page .reset-input, 
+.reset-page .reset-btn {
+    width: 300px !important;
+}
+
+.reset-page .reset-btn {
+    border-radius: 8px !important; /* Больший радиус */
+    margin-top: 8px;
+}
+
+.reset-page .reset-divider {
+    width: 300px;
+    margin: 24px 0;
+}
+
+.reset-page .create-account-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: #262626;
+    text-decoration: none;
+    margin-bottom: auto; /* Выталкивает футер вниз */
+}
+
+/* Футер с линией и затемнением #FAFAFA */
+.reset-page .reset-footer {
+    width: 100%;
+    height: 44px;
+    background-color: #FAFAFA;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reset-page .back-to-login-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: #262626;
+    text-decoration: none;
+}
+.status-msg {
+    font-size: 14px;
+    margin: 10px 0;
+    text-align: center;
+}
+.status-msg.error { color: #ed4956; }
+.status-msg.success { color: #2db84d; }
+/* Адаптив */
+@media (max-width: 875px) {
+    .phones-container { display: none; }
+    .auth-right-side { transform: none; }
+}

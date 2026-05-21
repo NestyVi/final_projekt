@@ -1,0 +1,272 @@
+/* ==========================================================================
+   БАЗОВЫЕ СТИЛИ (ДЕСКТОП)
+   ========================================================================== */
+/* Фоновый оверлей */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+  backdrop-filter: blur(2px);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.global-close-btn {
+  position: absolute;
+  top: 20px; right: 20px;
+  background: transparent; border: none;
+  color: #ffffff; font-size: 38px; cursor: pointer;
+  z-index: 3010;
+}
+
+/* Контейнер окна */
+.modal-content.wide {
+  background: #ffffff;
+  width: 855px; 
+  height: 575px; 
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  transition: max-width 0.3s ease, height 0.3s ease;
+}
+
+/* Хедер */
+.modal-header {
+  height: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #dbdbdb;
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+  background: #fff;
+}
+
+.header-title { font-weight: 600; font-size: 16px; color: #262626; }
+.back-btn { position: absolute; left: 12px; background: none; border: none; cursor: pointer; display: flex; align-items: center; }
+.share-action-btn {
+  position: absolute; right: 16px;
+  background: none; border: none;
+  color: #0095f6; font-weight: 600; font-size: 14px; cursor: pointer;
+}
+.share-action-btn:disabled { color: #b2dffc; cursor: default; }
+
+.modal-body-container { flex: 1; display: flex; overflow: hidden; width: 100%; }
+.post-creation-layout { display: flex; width: 100%; height: 100%; }
+
+/* Левая часть (Фото) */
+.image-section {
+  flex: 1; 
+  background-color: #ffffff;
+  border-right: 1px solid #dbdbdb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.custom-upload-icon {
+  width: 153px;  
+  height: 153px;
+}
+
+.main-preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Правая часть (Инфо) */
+.settings-section {
+  width: 340px; 
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+.user-info-row {
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar-micro {
+  width: 28px; height: 28px;
+  border-radius: 50%; object-fit: cover;
+}
+
+.username-bold { font-weight: 600; font-size: 14px; }
+
+.caption-container {
+  padding: 0 16px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.caption-textarea {
+  width: 100%;
+  height: 160px;
+  border: none; outline: none; resize: none;
+  font-size: 16px; font-family: inherit;
+  margin-top: 4px;
+}
+
+.caption-footer {
+  display: flex;
+  padding: 12px 0;
+  border-bottom: 1px solid #efefef; 
+}
+
+.emoji-btn {
+  background: none; border: none;
+  color: #737373; font-size: 22px; cursor: pointer;
+  display: flex;
+}
+
+/* Строки Add Location / Accessibility */
+.dummy-row {
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #efefef;
+  cursor: pointer;
+}
+
+.dummy-row span { font-size: 16px; color: #262626; }
+.emoji-wrapper {
+  position: relative;
+  display: flex;
+}
+
+.emoji-picker-container {
+  position: absolute;
+  bottom: 40px; 
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.char-count {
+  color: #c7c7c7;
+  font-size: 12px;
+  margin-left: auto;
+}
+/* Прячем мобильный крестик на десктопе по умолчанию */
+.mobile-close-btn {
+  display: none;
+}
+
+
+/* ==========================================================================
+   МЕДИА-ЗАПРОСЫ (АДАПТИВ)
+   ========================================================================== */
+
+/* 💻 Ограничение под небольшие ноутбуки и горизонтальные планшеты (до 880px) */
+@media (max-width: 880px) {
+  .modal-content.wide {
+    width: 100%;
+    max-width: 700px; /* Сужаем общую ширину окна */
+    height: 500px;     /* Слегка пропорционально опускаем высоту */
+  }
+  
+  .settings-section {
+    width: 280px; /* Сжимаем правую панельку, отдавая приоритет фотке */
+  }
+
+  .caption-textarea {
+    height: 120px;
+  }
+}
+
+/* 📱 Смартфоны и вертикальные экраны (до 767px — Твой iPhone) */
+@media (max-width: 767px) {
+  /* Глобальный крестик закрытия на мобилках прячем — закрывать будем кнопкой "Назад" в хедере */
+  .global-close-btn {
+    display: none !important;
+  }
+
+  .modal-overlay {
+    padding: 0; /* Убираем рамки вокруг модалки */
+  }
+
+  /* Разворачиваем окно на 100% мобильного экрана */
+  .modal-content.wide {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: 100vh !important;
+    max-height: 100vh !important;
+    border-radius: 0; /* Убираем скругления */
+  }
+
+  /* Включаем вертикальный скролл для всего тела модалки */
+  .modal-body-container {
+    overflow-y: auto; 
+    display: block; /* Сбрасываем горизонтальный flex */
+  }
+
+  /* Перестраиваем раскладку: фото сверху, настройки снизу */
+  .post-creation-layout {
+    flex-direction: column;
+    height: auto;
+  }
+
+  /* Верхний блок с изображением */
+  .image-section {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Делаем область картинки квадратной */
+    border-right: none;
+    border-bottom: 1px solid #dbdbdb; /* Переносим разделительную линию вниз */
+    flex: none;
+    min-height: 300px;
+  }
+
+  .custom-upload-icon {
+    width: 96px; /* Чуть уменьшаем иконку загрузки на мобилке */
+    height: 96px;
+  }
+
+  /* Нижний блок с текстом и инфо */
+  .settings-section {
+    width: 100% !important; /* На всю ширину экрана */
+    flex-shrink: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .caption-textarea {
+    height: 100px; /* Уменьшаем высоту текстового поля, чтобы поместились нижние строки */
+    font-size: 15px;
+  }
+  
+  .dummy-row span {
+    font-size: 15px;
+  }
+}
+
+/* Отображаем и позиционируем крестик закрытия в хедере на смартфонах */
+  .mobile-close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 28px; /* Удобный размер для нажатия пальцем */
+    color: #262626;
+    padding: 4px;
+  }
