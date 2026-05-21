@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'http://3.120.224.76:5000/api'
+    // Берет адрес бэкенда из .env фронтенда, либо localhost
+    baseURL: `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api`
 });
 
 api.interceptors.request.use((config) => {

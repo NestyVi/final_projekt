@@ -18,8 +18,8 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
-        // origin: "http://localhost:5173",
-        origin: "http://server_docker:5173",
+        // Читает адрес фронтенда из .env, либо использует локальный по умолчанию
+        origin: process.env.CLIENT_URL || "http://localhost:5173",
         methods: ["GET", "POST"]
     }
 });
