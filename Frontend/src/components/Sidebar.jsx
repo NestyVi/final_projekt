@@ -72,7 +72,7 @@ const Sidebar = () => {
         const totalUnread = convRes.data.reduce((sum, c) => sum + (c.unreadCount || 0), 0);
         setUnreadMessagesCount(totalUnread);
       } catch (err) {
-        // Ошибка подавлена для чистоты консоли
+  
       }
     };
 

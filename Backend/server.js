@@ -57,7 +57,7 @@ app.use('/api/notifications', notificationRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/messages', messageRoutes);
 
-// Исправлено: расширенная обработка подключения и отключения пользователей
+// обработка подключения и отключения пользователей
 io.on('connection', (socket) => {
     socket.on('addNewUser', (userId) => {
         if (userId && userId !== "undefined" && userId !== "null") {

@@ -100,8 +100,6 @@ exports.followUser = async (req, res) => {
             });
             await notification.save();
 
-            // Socket logic... (оставляем твою)
-
             return res.json({ message: "Followed", following: updatedUser.following });
         }
     } catch (err) {

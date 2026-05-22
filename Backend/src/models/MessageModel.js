@@ -4,7 +4,7 @@ const MessageSchema = new mongoose.Schema({
   conversationId: { type: mongoose.Schema.Types.ObjectId, ref: 'Conversation', required: true },
   sender: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
   text: { type: String, required: true },
-  // Статус прочтения (пригодится на будущее)
+  // Статус прочтения 
   isRead: { type: Boolean, default: false }
 }, { timestamps: true });
 
